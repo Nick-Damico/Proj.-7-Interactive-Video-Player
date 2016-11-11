@@ -1,0 +1,39 @@
+body {
+  font-family: $stack-open-sans;
+}
+
+.main-heading {
+  @extend %heading-styles;
+  /* 24px / 14px */
+  font-size: 1.71428571em;
+  font-weight: 300;
+
+    @include tablet {
+      /* 21 / 14px */
+      font-size: 1.5em;
+    }
+    @include desktop{
+        /* 26px / 14px */
+        font-size: 1.85714286em;
+    }
+}
+
+.section-heading{
+  @extend %heading-styles;
+  @extend %font-spacing;
+  /* 21px / 14px */
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.transcript-text-container {
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.main-footer {
+  .footer-about {
+    @extend %heading-styles;
+  }
+}

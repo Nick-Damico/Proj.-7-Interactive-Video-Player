@@ -1,6 +1,6 @@
 // Author: Nicholas D'Amico
 // Contact: nickalan82@icloud.com
-// Checked project in:
+// Checked project in: Chorme 54.0.02840.71, FireFox 50.0 & 49.0.1, safari 10.0.1
 // Treehouse Project 7: Interactive Video Player
 
 
@@ -19,6 +19,7 @@ var $pBar = $('#progressBar');
 var $playBtn = $("#playBtn");
 var $volBtn = $("#volumeBtn");
 var $fullScreenBtn = $("#fullScreenBtn");
+var $transcript = $('span[data-start-time]');
 
 // HIDES CONTROLS AT START
 $controls.hide();
@@ -223,3 +224,10 @@ $pBar.on('mousedown', function(e) {
 ///////////////////////////////////////////////////
 // TRANSCRIPT EVENT CLICK
 ///////////////////////////////////////////////////
+
+
+$transcript.on('click', function(){
+  var time = $(this).attr('data-start-time');
+  updateProgressBar(time);
+  updateTime(time);
+});

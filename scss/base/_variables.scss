@@ -1,4 +1,4 @@
-// Descriptive color variables
+/* Descriptive color variables*/
 
 $white            : #fafafa;
 $black            : #000;
@@ -8,7 +8,7 @@ $grey             : lightgrey;
 $Acapulco         : #71b095;
 $Picton-blue      : #56c1f2;
 
-// Functional color variables
+/* Functional color variables*/
 $text-color-light   : rgba(0, 0, 0, 0.54);
 
 $bg-primary-color     : $Acapulco;
@@ -20,35 +20,35 @@ $primary-border-color : $Picton-blue;
 
 $border-color-icon    : $primary-border-color;
 
-// Font Stacks
+/* Font Stacks*/
 
 $stack-sans-serif     : Helvetica, Arial, sans-serif;
 $stack-open-sans      : 'Open Sans', $stack-sans-serif;
 $stack-roboto         : 'Roboto', $stack-sans-serif;
 
-// Font Size
+/* Font Size*/
 
 $font-small           : .875em;
 $font-med             : 1em;
 $font-large           : 1.5em;
 
-// Border radius
+/* Border radius*/
 
 $br-round: 50%;
 
-// Center El's
+/* Center El's*/
 
 $margin-center      :  0 auto;
 
-// Asset paths
+/* Asset paths*/
 
 $path-img  : '../img';
 
-// Media Query
+/* Media Query*/
 
-// ,(min-width: 600px) and (orientation: landscape)'
+/* ,(min-width: 600px) and (orientation: landscape)'*/
 
-// Fixes layout issue with project pic layout
+/* Fixes layout issue with project pic layout*/
 $brk-2col-layout : '(min-width: 460px) and (max-width:1023px)';
 
 $brk-tablet :  '(min-width: 460px),(min-width: 600px) and (orientation: landscape)';

@@ -8,3 +8,8 @@
 .dd-gradient {
   background-image: linear-gradient(to right, #1de9b6, #2979ff);
 }
+
+.highlight {
+  background: $hover-bg;
+  color: $white;
+}

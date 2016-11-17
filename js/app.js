@@ -9,225 +9,217 @@
 ///////////////////////////////////////////////////
 
 
-  // SELECT VIDEO PLAYER
-  var $video = $("#videoPlayer")[0];
-  // VIDEO CONTAINER
-  var $videoContainer = $('.video-container');
-  // SELECT PLAYER BUTTONS
-  var $controls = $('.controls');
-  var $pBar = $('#progressBar');
-  var $playBtn = $("#playBtn");
-  var $volBtn = $("#volumeBtn");
-  var $fullScreenBtn = $("#fullScreenBtn");
+// SELECT VIDEO PLAYER
+var $video = $("#videoPlayer")[0];
+// VIDEO CONTAINER
+var $videoContainer = $('.video-container');
+// SELECT PLAYER BUTTONS
+var $controls = $('.controls');
+var $pBar = $('#progressBar');
+var $playBtn = $("#playBtn");
+var $volBtn = $("#volumeBtn");
+var $fullScreenBtn = $("#fullScreenBtn");
 
-  $controls.hide();
+// HIDES CONTROLS AT START
+$controls.hide();
 
 
-  ///////////////////////////////////////////////////
-  // FUNCTIONS
-  ///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+// FUNCTIONS
+///////////////////////////////////////////////////
 
 /////////////////////////////////////////
 // PLAY FUNCTION
 /////////////////////////////////////////
-  function vidPlay() {
+function vidPlay() {
     // Check if video is paused state
-    if($video.paused) {
-      // Call play method
-      $video.play();
-      $playBtn.fadeOut( function(){
-        $playBtn.children().attr('src', 'icons/pause-icon.png');
-      });
-      // Replace play icon w/pause-icon
-      $playBtn.fadeIn();
+    if ($video.paused) {
+        // Call play method
+        $video.play();
+        $playBtn.fadeOut(function() {
+            $playBtn.children().attr('src', 'icons/pause-icon.png');
+        });
+        // Replace play icon w/pause-icon
+        $playBtn.fadeIn();
     } else {
-      // Call pause method
-      $video.pause();
-      $playBtn.fadeOut( function() {
-        $playBtn.children().attr('src', 'icons/play-icon.png');
-      });
-      // Replace pause-icon w/play-icon
-      $playBtn.fadeIn();
+        // Call pause method
+        $video.pause();
+        $playBtn.fadeOut(function() {
+            $playBtn.children().attr('src', 'icons/play-icon.png');
+        });
+        // Replace pause-icon w/play-icon
+        $playBtn.fadeIn();
     }
-  }
+}
 
 /////////////////////////////////////////
 // FULLSCREEN FUNCTION
 /////////////////////////////////////////
-  function fullScreen() {
-    if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
+function fullScreen() {
+    if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
         if ($video.requestFullscreen) {
-          $video.requestFullscreen();
-        }
-        else if ($video.msRequestFullscreen) {
-          $video.msRequestFullscreen();
-        }
-        else if ($video.mozRequestFullScreen) {
-          $video.mozRequestFullScreen();
-        }
-        else if ($video.webkitRequestFullscreen) {
-          $video.webkitRequestFullscreen();
+            $video.requestFullscreen();
+        } else if ($video.msRequestFullscreen) {
+            $video.msRequestFullscreen();
+        } else if ($video.mozRequestFullScreen) {
+            $video.mozRequestFullScreen();
+        } else if ($video.webkitRequestFullscreen) {
+            $video.webkitRequestFullscreen();
         }
 
-      }
-      else {
+    } else {
         if (document.exitFullscreen) {
-          document.exitFullscreen();
+            document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
         }
-        else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
-        }
-        else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen();
-        }
-        else if (document.webkitExitFullscreen) {
-          document.webkitExitFullscreen();
-        }
-      }
-  }
+    }
+}
 
 /////////////////////////////////////////
 // MUTE FUNCTION
 /////////////////////////////////////////
-  function mute() {
+function mute() {
     // CHECK VIDEO MUTED BOOLEAN
-    if( $video.muted ) {
-      // IF 'TRUE', UN-MUTE AUDIO
-      $video.muted = false;
-      // REPLACE ICON W/ON-ICON.PNG
-      $(this).children().attr('src', 'icons/volume-on-icon.png');
+    if ($video.muted) {
+        // IF 'TRUE', UN-MUTE AUDIO
+        $video.muted = false;
+        // REPLACE ICON W/ON-ICON.PNG
+        $(this).children().attr('src', 'icons/volume-on-icon.png');
     } else {
-      // IF 'FALSE', MUTE AUDIO
-      $video.muted = true;
-      // REPLACE ICON W/OFF-ICON.PNG
-      $(this).children().attr('src', 'icons/volume-off-icon.png');
+        // IF 'FALSE', MUTE AUDIO
+        $video.muted = true;
+        // REPLACE ICON W/OFF-ICON.PNG
+        $(this).children().attr('src', 'icons/volume-off-icon.png');
     }
-  }
+}
 
 
 
 /////////////////////////////////////////
 // UPDATE TIME DISPLAY FUNCTION
 /////////////////////////////////////////
-  function updateDisplayTime() {
+function updateDisplayTime() {
     var currentTime = $video.currentTime;
     var $time = $('.time');
     if (currentTime < 10) {
-      $time.html('00:0' + Math.floor(currentTime) + ' / 00:59');
+        $time.html('00:0' + Math.floor(currentTime) + ' / 00:59');
     } else {
         $time.html('00:' + Math.floor(currentTime) + ' / 00:59');
-      }
-  }
+    }
+}
 
 /////////////////////////////////////////
-// RESTART VIDEO FUNCTION
+// UPATE CURRENT TIME FUNCTION
 /////////////////////////////////////////
-  function updateTime(time) {
+function updateTime(time) {
     $video.currentTime = time;
-  }
+}
 
 /////////////////////////////////////////
 // FILLS PROGRESS BAR AS VIDEO PLAYS
 /////////////////////////////////////////
-  function updateProgressBar(time) {
+function updateProgressBar(time) {
     $pBar.attr('value', time);
-  }
+}
 
-  /////////////////////////////////////////
-  // CLICK AND SEEK ON PROGRESSBAR
-  /////////////////////////////////////////
+/////////////////////////////////////////
+// CLICK AND SEEK ON PROGRESSBAR
+/////////////////////////////////////////
 
-  function seekableProgressBar(x) {
+function seekableProgressBar(x) {
     // VIDEO DURATION
     var maxDuration = $video.duration;
     // X = event.pageX CLICK POSITION
     var position = x - $pBar.offset().left;
     var percentage = Math.floor(maxDuration * position / $pBar.width());
-    if(percentage > maxDuration) {
-      percentage = 59;
+    if (percentage > maxDuration) {
+        percentage = 59;
     }
-    if(percentage < 0) {
-      percentage = 0;
+    if (percentage < 0) {
+        percentage = 0;
     }
 
     updateProgressBar(percentage);
-    updateTime(percentage );
-  }
+    updateTime(percentage);
+}
 
-  /////////////////////////////////////////
-  // media playback time changes, sentences
-  // in  transcript should highlight.
-  /////////////////////////////////////////
-  function highlightTranscript(time) {
+/////////////////////////////////////////
+// media playback time changes, sentences
+// in  transcript should highlight.
+/////////////////////////////////////////
+function highlightTranscript(time) {
     var startTime,
         endTime,
         $transcript = $('p[class^="transcript"] span');
 
-    $transcript.each(function(){
-      startTime = $(this).attr('data-start-time');
-      endTime = $(this).attr('data-end-time');
-      if($(this).attr('class') === 'highlight'){
-        $(this).removeClass('highlight');
-      }
-      if(time >= startTime && time <= endTime) {
-        $(this).addClass('highlight');
-      }
+    $transcript.each(function() {
+        startTime = $(this).attr('data-start-time');
+        endTime = $(this).attr('data-end-time');
+        if ($(this).attr('class') === 'highlight') {
+            $(this).removeClass('highlight');
+        }
+        if (time >= startTime && time <= endTime) {
+            $(this).addClass('highlight');
+        }
 
     });
 
-  }
+}
 
 
 
+///////////////////////////////////////////////////
+// EVENTS
+///////////////////////////////////////////////////
 
+// EVENT 'CLICK' PLAY BTN
+$playBtn.on('click', vidPlay);
 
-  ///////////////////////////////////////////////////
-  // EVENTS
-  ///////////////////////////////////////////////////
+// EVENT 'CLICK' FULLSCREEN BTN
+$fullScreenBtn.on('click', fullScreen);
 
-  // EVENT 'CLICK' PLAY BTN
-  $playBtn.on('click', vidPlay);
+// EVENT 'CLICK' MUTE BUTTON
+$volBtn.on('click', mute);
 
-  // EVENT 'CLICK' FULLSCREEN BTN
-  $fullScreenBtn.on('click', fullScreen);
-
-  // EVENT 'CLICK' MUTE BUTTON
-  $volBtn.on('click', mute);
-
-  // EVENT 'MOUSEENTER' VIDEO CONTAINER SHOWS CONTROLS
-  $videoContainer.mouseenter( function() {
+// EVENT 'MOUSEENTER' VIDEO CONTAINER SHOWS CONTROLS
+$videoContainer.mouseenter(function() {
     $controls.fadeIn(300);
-  });
+});
 
-  // EVENT 'MOUSEENTER' VIDEO CONTAINER HIDES CONTROLS
-  $videoContainer.mouseleave( function() {
+// EVENT 'MOUSEENTER' VIDEO CONTAINER HIDES CONTROLS
+$videoContainer.mouseleave(function() {
     $controls.fadeOut(300);
-  });
+});
 
 ///////////////////////////////////////////////////
 // PROGRESS BAR EVENTS
 ///////////////////////////////////////////////////
 
 // UPDATES PROGRESS BAR ELEMENT MAX VALUE PROP ON LOAD
-  $video.addEventListener('loadedmetadata', function(){
+$video.addEventListener('loadedmetadata', function() {
     var length = $video.duration;
     $pBar.attr('max', length);
-  });
+});
 
 // EVENT ON 'TIMEUPDATE'.
 //UPDATES PROGRESS BAR AND TIME
-  $video.addEventListener('timeupdate', function() {
+$video.addEventListener('timeupdate', function() {
     var time = $video.currentTime;
     updateProgressBar(time);
     updateDisplayTime();
     highlightTranscript(time);
-  }, false);
+}, false);
 
 // EVENT 'CLICK' ON PROGRESS BAR ELEMENT
-  $pBar.on('mousedown', function(e) {
-        seekableProgressBar(e.pageX);
-  });
+$pBar.on('mousedown', function(e) {
+    seekableProgressBar(e.pageX);
+});
 
-  ///////////////////////////////////////////////////
-  // TRANSCRIPT EVENT CLICK
-  ///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+// TRANSCRIPT EVENT CLICK
+///////////////////////////////////////////////////

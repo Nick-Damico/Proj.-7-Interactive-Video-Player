@@ -55,6 +55,9 @@ body {
       /* 26px / 14px */
       font-size: 1.85714286em; } }
 
+h2.section-heading {
+  color: #259de7; }
+
 .section-heading {
   /* 21px / 14px */
   font-size: 1.5em;

@@ -1,0 +1,25 @@
+{
+  "name": "interactive-video-player",
+  "version": "1.0.0",
+  "description": "FEWD Techdegree Proj. 7 Interative Video Player",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nick-Damico/Proj.-7-Interactive-Video-Player.git"
+  },
+  "keywords": [
+    "Techdegree",
+    "Video",
+    "Player",
+    "Interactive"
+  ],
+  "author": "Nicholas D'Amico nickalan82@icloud.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nick-Damico/Proj.-7-Interactive-Video-Player/issues"
+  },
+  "homepage": "https://github.com/Nick-Damico/Proj.-7-Interactive-Video-Player#readme"
+}

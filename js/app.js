@@ -112,6 +112,7 @@ $( document ).ready(function () {
 
     $captionsBtn.on('click', function () {
         if ($video.textTracks[0].mode === 'hidden') {
+            console.log('on');
             $video.textTracks[0].mode = 'showing';
         } else {
             $video.textTracks[0].mode = 'hidden';

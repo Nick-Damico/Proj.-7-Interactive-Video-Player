@@ -165,6 +165,10 @@ h2.section-heading {
     .video-container .media-player-controls .progress {
       width: 100%; }
 
+::cue {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 1.2rem; }
+
 .transcript-text-container {
   width: 95%;
   margin: 0 auto; }

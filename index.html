@@ -39,7 +39,8 @@
           <!-- Video ogg. file -->
           <source src="video/video.ogg" type="video/ogg" />
           <!-- Video Captions -->
-          <!-- <track src="video/captions.vtt" label="English" kind="subtitles" srclang="en" default> -->
+           <track src="video/captions.vtt" label="English" kind="subtitles" srclang="en" default> 
+
 
           <i>Your browser does not support the <code>video</code> element.</i>
 
@@ -64,7 +65,7 @@
           <!-- Right Side player controls -->
           <div class="right-media-controls controls">
             <!-- Closed Caption Btn -->
-            <button id="closedCaptionBtn" class="volume-btn">
+            <button id="closedCaptionBtn" class="volume-btn" data-state="captions">
               <img class="icon icon-cc" src="icons/cc-icon.svg" alt="closed caption btn" />
             </button>
             <!-- Volume Btn -->

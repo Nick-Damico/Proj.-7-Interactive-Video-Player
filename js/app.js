@@ -4,7 +4,7 @@
 // Treehouse Project 7: Interactive Video Player
 
 //Load Js when document is ready
-$(function() {
+$( document ).ready(function () {
 
     ///////////////////////////////////////////////////
     // ELEMENT REFERENCES
@@ -100,6 +100,23 @@ $(function() {
             $(this).children().attr('src', 'icons/volume-off-icon.png');
         }
     }
+
+
+    /////////////////////////////////////////
+    // SUBTITLES / CAPTIONS FUNCTION
+    /////////////////////////////////////////
+    var $captionsBtn = $('#closedCaptionBtn');
+
+    //  TURN OFF CAPTIONS IN CASE BROWSER TURNS 'ON' BY DEFUALT
+    $video.textTracks[0].mode = 'hidden';
+
+    $captionsBtn.on('click', function () {
+        if ($video.textTracks[0].mode === 'hidden') {
+            $video.textTracks[0].mode = 'showing';
+        } else {
+            $video.textTracks[0].mode = 'hidden';
+        }
+    });
 
 
 
@@ -224,7 +241,7 @@ $(function() {
     });
 
     ///////////////////////////////////////////////////
-    // TRANSCRIPT EVENT CLICK
+    // INTERACTIVE TRANSCRIPT EVENT CLICK
     ///////////////////////////////////////////////////
 
 
@@ -233,5 +250,5 @@ $(function() {
         updateProgressBar(time);
         updateTime(time);
     });
-
+//  End of .ready function
 });

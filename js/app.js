@@ -112,10 +112,11 @@ $( document ).ready(function () {
 
     $captionsBtn.on('click', function () {
         if ($video.textTracks[0].mode === 'hidden') {
-            console.log('on');
+            $captionsBtn.children('img').attr('src', 'icons/cc-icon-on.svg');
             $video.textTracks[0].mode = 'showing';
         } else {
             $video.textTracks[0].mode = 'hidden';
+            $captionsBtn.children('img').attr('src', 'icons/cc-icon-off.svg');
         }
     });
 

@@ -245,8 +245,6 @@ $( document ).ready(function () {
     ///////////////////////////////////////////////////
     // INTERACTIVE TRANSCRIPT EVENT CLICK
     ///////////////////////////////////////////////////
-
-
     $transcript.on('click', function() {
         var time = $(this).attr('data-start-time');
         updateProgressBar(time);

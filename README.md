@@ -20,6 +20,7 @@ The project utilizes the following technologies:
 - HTML5 Video API
 
 # Screenshot
+![video-player](https://github.com/Nick-Damico/Proj.-7-Interactive-Video-Player/assets/19657584/8c22e6b1-c0be-499d-b349-4ea9d5a90a21)
 
 # Code Validation
 
@@ -27,7 +28,7 @@ The code has been validated using the [W3C Markup Validation Service](https://va
 
 # Demo
 
-Feel free test out the video player using the link under **Project Link**, interact with the controls, and test out the transcript synchronization.
+Feel free to test out the video player using the link under **Project Link**, interact with the controls, and test out the transcript synchronization.
 
 For any inquiries or feedback, please reach out via the provided contact email.
 

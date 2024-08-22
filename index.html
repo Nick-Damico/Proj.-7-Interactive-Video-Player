@@ -1,168 +1,196 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <meta name="author" content="Nicholas D'Amico">
-    <meta name="description" content="Techdegree Project 7 Interactive Video Player">
-    <meta name="keywords" content="HTML, HTMl5 Video API, JavaScript, CSS3, Interactive Video player">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Nicholas D'Amico" />
+    <meta
+      name="description"
+      content="Techdegree Project 7 Interactive Video Player"
+    />
+    <meta
+      name="keywords"
+      content="HTML, HTMl5 Video API, JavaScript, CSS3, Interactive Video player"
+    />
     <title>Interactive Video Player</title>
 
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto:300,400,500,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/application.css" />
     <script type="module" src="main.js" defer></script>
   </head>
   <body>
-
     <div class="wrapper">
-
       <header class="main-header">
-        <!-- Icon Logo -->
-        <span class="video-player-icon"><i class="fa fa-television" aria-hidden="true"></i>
+        <span class="video-player-icon"
+          ><i class="fa fa-television" aria-hidden="true"></i>
         </span>
-        <!-- Main Title -->
-        <h1 id="mainHeading" class="main-heading">Techdegree Project 7: Interactive Video Player</h1>
-
+        <h1 id="mainHeading" class="main-heading">
+          Techdegree Project 7: Interactive Video Player
+        </h1>
       </header>
-      <!-- H.Rule Seperator of content -->
       <div class="line-divider dd-gradient"></div>
 
-      <div class="video-container">
-
+      <div id="videoContainer" class="video-container">
         <video id="videoPlayer" class="video-player" preload="auto">
-          <!-- Video mp4. file -->
-          <source src="video/video.mp4" type="video/mp4">
-          <!-- Video ogg. file -->
-          <source src="video/video.ogg" type="video/ogg">
-          <!-- Video Captions -->
-           <track src="video/captions.vtt" label="English" kind="subtitles" srclang="en" default> 
+          <source src="video/video.mp4" type="video/mp4" />
+          <source src="video/video.ogg" type="video/ogg" />
+          <track
+            src="video/captions.vtt"
+            label="English"
+            kind="subtitles"
+            srclang="en"
+            default
+          />
         </video>
 
-        <!-- END/OF VIDEO ELEMENT -->
         <div class="media-player-controls">
+          <progress
+            id="progressBar"
+            class="progress"
+            max="59"
+            value="1"
+          ></progress>
 
-            <progress id="progressBar" class="progress" max="59" value='1' >
-            </progress>
-
-          <!-- Left Side player controls -->
           <div class="left-media-controls controls">
-            <!-- Play Btn -->
             <button id="playBtn">
-              <img class="icon play-icon" src="icons/play-icon.png" alt="pause button" />
+              <img
+                class="icon play-icon"
+                src="icons/play-icon.png"
+                alt="pause button"
+              />
             </button>
-            <!-- Current / Total time display -->
             <span class="time"></span>
-            <!-- End/Of left Media Controls -->
           </div>
 
-          <!-- Right Side player controls -->
           <div class="right-media-controls controls">
-            <!-- Closed Caption Btn -->
-            <button id="closedCaptionBtn" class="volume-btn" data-state="captions">
-              <img class="icon icon-cc" src="icons/cc-icon-off.svg" alt="closed caption btn" />
+            <button
+              id="closedCaptionBtn"
+              class="volume-btn"
+              data-state="captions"
+            >
+              <img
+                class="icon icon-cc"
+                src="icons/cc-icon-off.svg"
+                alt="closed caption btn"
+              />
             </button>
-            <!-- Volume Btn -->
             <button id="volumeBtn" class="volume-btn">
-              <img class="icon icon-volume" src="icons/volume-on-icon.png" alt="volume on button" />
+              <img
+                class="icon icon-volume"
+                src="icons/volume-on-icon.png"
+                alt="volume on button"
+              />
             </button>
-            <!-- Fullscreen Btn -->
             <button id="fullScreenBtn" class="fullscreen-btn">
-              <img class="icon fullscreen-icon" src="icons/fullscreen-icon.png" alt="fullscreen button" />
+              <img
+                class="icon fullscreen-icon"
+                src="icons/fullscreen-icon.png"
+                alt="fullscreen button"
+              />
             </button>
-            <!-- End/Of Right Side media Controls -->
           </div>
-
         </div>
-        <!--End/Of Media Player Controls Container -->
-
       </div>
-      <!-- END/OF VIDEO CONTAINER -->
 
-      <!-- START/OF CAPTIONS CONTAINER ELEMENT -->
       <section class="transcript-text-container">
-
         <h2 class="section-heading">Interactive Video Transcript</h2>
-          <!-- START/OF TRANSCRIPT PARAGRAPH 01 -->
         <p class="transcript-paragraph-01">
-
-          <span data-start-time="00.240" data-end-time="04.130">Now that We've looked at the architecture of the internet, let's see how you might
+          <span data-start-time="00.240" data-end-time="04.130"
+            >Now that We've looked at the architecture of the internet, let's
+            see how you might
           </span>
 
-          <span data-start-time="04.130" data-end-time="07.535">connect your personal devices to the internet inside your house.
+          <span data-start-time="04.130" data-end-time="07.535"
+            >connect your personal devices to the internet inside your house.
           </span>
 
-          <span data-start-time="07.535" data-end-time="11.270">Well there are many ways to connect to the internet, and
+          <span data-start-time="07.535" data-end-time="11.270"
+            >Well there are many ways to connect to the internet, and
           </span>
 
-          <span data-start-time="11.270" data-end-time="13.960">most often people connect wirelessly.
+          <span data-start-time="11.270" data-end-time="13.960"
+            >most often people connect wirelessly.
           </span>
-
         </p>
-        <!-- END/OF TRANSCRIPT PARAGRAPH 01 -->
 
-        <!-- START/OF TRANSCRIPT PARAGRAPH 02 -->
         <p class="transcript-paragraph-02">
-
-          <span data-start-time="13.960" data-end-time="17.940">Let's look at an example of how you can connect to the internet.
+          <span data-start-time="13.960" data-end-time="17.940"
+            >Let's look at an example of how you can connect to the internet.
           </span>
 
-          <span data-start-time="17.940" data-end-time="22.370">If you live in a city or a town, you probably have a coaxial cable for
+          <span data-start-time="17.940" data-end-time="22.370"
+            >If you live in a city or a town, you probably have a coaxial cable
+            for
           </span>
 
-          <span data-start-time="22.370" data-end-time="26.880">cable Internet, or a phone line if you have DSL, running to the outside of
+          <span data-start-time="22.370" data-end-time="26.880"
+            >cable Internet, or a phone line if you have DSL, running to the
+            outside of
           </span>
 
-          <span data-start-time="26.880" data-end-time="30.920">your house, that connects you to the Internet Service Provider, or ISP.
+          <span data-start-time="26.880" data-end-time="30.920"
+            >your house, that connects you to the Internet Service Provider, or
+            ISP.
           </span>
-
         </p>
-        <!-- END/OF TRANSCRIPT PARAGRAPH 02 -->
 
-        <!-- START/OF TRANSCRIPT PARAGRAPH 03 -->
         <p class="transcript-paragraph-03">
-
-          <span data-start-time="32.100" data-end-time="34.730">If you live far out in the country, you'll more likely have
+          <span data-start-time="32.100" data-end-time="34.730"
+            >If you live far out in the country, you'll more likely have
           </span>
 
-          <span data-start-time="34.730" data-end-time="39.430">a dish outside your house, connecting you wirelessly to your closest ISP, or
+          <span data-start-time="34.730" data-end-time="39.430"
+            >a dish outside your house, connecting you wirelessly to your
+            closest ISP, or
           </span>
 
-          <span data-start-time="39.430" data-end-time="41.190">you might also use the telephone system.
+          <span data-start-time="39.430" data-end-time="41.190"
+            >you might also use the telephone system.
           </span>
-
         </p>
-        <!-- END/OF TRANSCRIPT PARAGRAPH 03 -->
 
-        <!-- START/OF TRANSCRIPT PARAGRAPH 04 -->
         <p class="transcript-paragraph-03">
-
-          <span data-start-time="42.350" data-end-time="46.300">Whether a wire comes straight from the ISP hookup outside your house, or
+          <span data-start-time="42.350" data-end-time="46.300"
+            >Whether a wire comes straight from the ISP hookup outside your
+            house, or
           </span>
 
-          <span data-start-time="46.300" data-end-time="49.270">it travels over radio waves from your roof,
+          <span data-start-time="46.300" data-end-time="49.270"
+            >it travels over radio waves from your roof,
           </span>
 
-          <span data-start-time="49.270" data-end-time="53.760">the first stop a wire will make once inside your house, is at your modem.
+          <span data-start-time="49.270" data-end-time="53.760"
+            >the first stop a wire will make once inside your house, is at your
+            modem.
           </span>
 
-          <span data-start-time="53.760" data-end-time="57.780">A modem is what connects the internet to your network at home.
+          <span data-start-time="53.760" data-end-time="57.780"
+            >A modem is what connects the internet to your network at home.
           </span>
 
-          <span data-start-time="57.780" data-end-time="59.000">A few common residential modems are DSL or&hellip;
+          <span data-start-time="57.780" data-end-time="59.000"
+            >A few common residential modems are DSL or&hellip;
           </span>
-
         </p>
-        <!-- END/OF TRANSCRIPT PARAGRAPH 04 -->
       </section>
 
-      <!-- H.Rule Seperator of content -->
       <div class="line-divider dd-gradient"></div>
 
       <footer class="main-footer">
-        <i class="footer-about">&copy;2016 <a href="http://nicholasdamico.net">Nicholas D'Amico</a>.net</i>
+        <i class="footer-about"
+          >&copy;2016
+          <a href="http://nicholasdamico.net">Nicholas D'Amico</a>.net</i
+        >
       </footer>
-
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </body>
 </html>

@@ -24,8 +24,8 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto:300,400,500,700"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/application.css" />
-    <script type="module" src="main.js" defer></script>
+    <link lang="sass" rel="stylesheet" href="assets/scss/application.scss" />
+    <script type="module" src="assets/javascript/main.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
@@ -41,10 +41,10 @@
 
       <div id="videoContainer" class="video-container">
         <video id="videoPlayer" class="video-player" preload="auto">
-          <source src="video/video.mp4" type="video/mp4" />
-          <source src="video/video.ogg" type="video/ogg" />
+          <source src="assets/video/video.mp4" type="video/mp4" />
+          <source src="assets/video/video.ogg" type="video/ogg" />
           <track
-            src="video/captions.vtt"
+            src="assets/video/captions.vtt"
             label="English"
             kind="subtitles"
             srclang="en"
@@ -52,7 +52,7 @@
           />
         </video>
 
-        <div class="media-player-controls">
+        <div id="videoControls" class="media-player-controls">
           <progress
             id="progressBar"
             class="progress"
@@ -64,7 +64,7 @@
             <button id="playBtn">
               <img
                 class="icon play-icon"
-                src="icons/play-icon.png"
+                src="assets/icons/play-icon.png"
                 alt="pause button"
               />
             </button>
@@ -79,21 +79,21 @@
             >
               <img
                 class="icon icon-cc"
-                src="icons/cc-icon-off.svg"
+                src="assets/icons/cc-icon-off.svg"
                 alt="closed caption btn"
               />
             </button>
             <button id="volumeBtn" class="volume-btn">
               <img
                 class="icon icon-volume"
-                src="icons/volume-on-icon.png"
+                src="assets/icons/volume-on-icon.png"
                 alt="volume on button"
               />
             </button>
             <button id="fullScreenBtn" class="fullscreen-btn">
               <img
                 class="icon fullscreen-icon"
-                src="icons/fullscreen-icon.png"
+                src="assets/icons/fullscreen-icon.png"
                 alt="fullscreen button"
               />
             </button>

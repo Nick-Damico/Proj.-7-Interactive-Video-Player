@@ -12,19 +12,19 @@ $( document ).ready(function () {
 
 
     // SELECT VIDEO PLAYER
-    var $video = $("#videoPlayer")[0];
+    // var $video = $("#videoPlayer")[0];
     // VIDEO CONTAINER
-    var $videoContainer = $('.video-container');
+    // var $videoContainer = $('.video-container');
     // SELECT PLAYER BUTTONS
-    var $controls = $('.controls');
-    var $pBar = $('#progressBar');
-    var $playBtn = $("#playBtn");
-    var $volBtn = $("#volumeBtn");
-    var $fullScreenBtn = $("#fullScreenBtn");
+    // var $controls = $('.controls');
+    // var $pBar = $('#progressBar');
+    // var $playBtn = $("#playBtn");
+    // var $volBtn = $("#volumeBtn");
+    // var $fullScreenBtn = $("#fullScreenBtn");
     var $transcript = $('span[data-start-time]');
 
     // HIDES CONTROLS AT START
-    $controls.hide();
+    // $controls.hide();
 
 
     ///////////////////////////////////////////////////

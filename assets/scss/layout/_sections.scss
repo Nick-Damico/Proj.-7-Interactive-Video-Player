@@ -1,0 +1,19 @@
+.wrapper {
+  max-width: 960px;
+  width: 95%;
+  margin: 2em auto;
+
+  @include tablet {
+    width: 80%;
+  }
+}
+
+.main-footer {
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: cornflowerblue;
+  }
+
+}

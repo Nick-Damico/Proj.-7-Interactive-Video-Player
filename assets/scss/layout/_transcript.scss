@@ -1,0 +1,21 @@
+.transcript-text-container {
+  width: 95%;
+  margin: 0 auto;
+
+  @include tablet {
+    width: 90%;
+  }
+
+  p span {
+    -webkit-transition: background .4s ease-in-out,
+                color .4s ease-in-out;
+    transition: background .4s ease-in-out,
+                color .4s ease-in-out;
+  }
+
+  p span:hover {
+    background: $hover-bg;
+    color: $white;
+  }
+
+}

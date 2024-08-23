@@ -1,0 +1,16 @@
+.line-divider {
+  background-color: rgba(0,0,0,0.1);
+  height: 1px;
+  margin: 1em auto 1.75em;
+  width: 80%;
+}
+
+.dd-gradient {
+  background-image: -webkit-linear-gradient(left, #1de9b6, #2979ff);
+  background-image: linear-gradient(to right, #1de9b6, #2979ff);
+}
+
+.highlight {
+  background: $hover-bg;
+  color: $white;
+}

@@ -1,6 +1,6 @@
 // Breaks existing scss
 // import './style.css'
-import Video from './js/video.js'
+import Video from './video.js'
 
 console.log('main loaded')
 

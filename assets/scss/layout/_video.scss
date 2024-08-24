@@ -24,6 +24,20 @@
       display: none;
     }
 
+    .icon-volume--off {
+      display: none;
+    }
+
+    .volume-btn.off {
+      img.icon-volume--off {
+        display: block;
+      }
+
+      img.icon-volume--on {
+        display: none;
+      }
+    }
+
     span.time {
       display: inline-block;
       color: $white;

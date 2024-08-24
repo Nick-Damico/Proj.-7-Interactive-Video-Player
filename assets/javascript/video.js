@@ -41,6 +41,14 @@ export default class Video {
     this._videoPlayer.pause()
   }
 
+  mute = () => {
+    this._videoPlayer.muted = !this._videoPlayer.muted
+  }
+
+  toggleFullScreen = () => {
+    this._videoPlayer.requestFullscreen()
+  }
+
   _attachPlayEvent() {
     if (this._playButton) {
       this._playButton.addEventListener('click', this._play)

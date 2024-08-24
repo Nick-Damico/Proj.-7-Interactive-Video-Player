@@ -30,11 +30,24 @@ export default class Interface {
   _init() {
     this._videoControls.style.opacity = 0
     this._attachPlayListener()
+    this._attachFullScreenListener()
+    this._attachMuteListener()
   }
 
   _attachPlayListener = () => {
     this._playButton.addEventListener('click', this._play)
     this._pauseButton.addEventListener('click', this._pause)
+  }
+
+  _attachFullScreenListener = () => {
+    this._fullScreenButton.addEventListener(
+      'click',
+      this._video.toggleFullScreen
+    )
+  }
+
+  _attachMuteListener = () => {
+    this._volumeButton.addEventListener('click', this._mute)
   }
 
   _play = () => {
@@ -61,5 +74,10 @@ export default class Interface {
 
     this._videoControls.classList.remove('fade-out')
     this._videoControls.classList.add('fade-in')
+  }
+
+  _mute = () => {
+    this._video.mute()
+    this._volumeButton.classList.toggle('off') // toggles visibility of volume icon
   }
 }

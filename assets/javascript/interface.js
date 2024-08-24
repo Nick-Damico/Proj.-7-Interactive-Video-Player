@@ -1,23 +1,22 @@
-export default class Control {
+export default class Interface {
   constructor({
+    video,
     videoControlsId,
     progressBarId,
     playButtonId,
+    pauseButtonId,
     volumeButtonId,
     fullScreenButtonId
   }) {
+    this._video = video
     this._videoControls = document.getElementById(videoControlsId)
     this._progressBar = document.getElementById(progressBarId)
     this._playButton = document.getElementById(playButtonId)
+    this._pauseButton = document.getElementById(pauseButtonId)
     this._volumeButton = document.getElementById(volumeButtonId)
     this._fullScreenButton = document.getElementById(fullScreenButtonId)
 
     this._init()
-  }
-
-  _init() {
-    this._hideControls()
-    this._attachControlsEvent()
   }
 
   show = () => {
@@ -28,11 +27,26 @@ export default class Control {
     this._hideControls()
   }
 
-  _attachControlsEvent() {
-    if (this._videoContainer) {
-      this._videoContainer.addEventListener('mouseenter', this._showControls)
-      this._videoContainer.addEventListener('mouseleave', this._hideControls)
-    }
+  _init() {
+    this._videoControls.style.opacity = 0
+    this._attachPlayListener()
+  }
+
+  _attachPlayListener = () => {
+    this._playButton.addEventListener('click', this._play)
+    this._pauseButton.addEventListener('click', this._pause)
+  }
+
+  _play = () => {
+    this._video.play()
+    this._playButton.style.display = 'none'
+    this._pauseButton.style.display = 'block'
+  }
+
+  _pause = () => {
+    this._video.pause()
+    this._pauseButton.style.display = 'none'
+    this._playButton.style.display = 'block'
   }
 
   _hideControls = () => {

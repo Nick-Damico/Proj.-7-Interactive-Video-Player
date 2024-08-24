@@ -20,6 +20,10 @@
     left: 0;
     padding: 0.5em;
 
+    .pause-btn {
+      display: none;
+    }
+
     span.time {
       display: inline-block;
       color: $white;

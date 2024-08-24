@@ -10,6 +10,7 @@ new Video({
   videoControlsId: 'videoControls',
   progressBarId: 'progressBar',
   playButtonId: 'playBtn',
+  pauseButtonId: 'pauseBtn',
   volumeButtonId: 'volumeBtn',
   fullScreenButtonId: 'fullScreenBtn'
 })

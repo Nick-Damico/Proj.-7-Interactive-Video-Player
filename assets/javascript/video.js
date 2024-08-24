@@ -1,4 +1,4 @@
-import Control from './control'
+import Interface from './interface'
 
 export default class Video {
   constructor({
@@ -7,35 +7,43 @@ export default class Video {
     videoControlsId,
     progressBarId,
     playButtonId,
+    pauseButtonId,
     volumeButtonId,
     fullScreenButtonId
   }) {
-    this._control = new Control({
+    this._videoContainer = document.getElementById(videoContainerId)
+    this._videoPlayer = document.getElementById(videoPlayerId)
+
+    this._interface = new Interface({
+      video: this,
       videoControlsId,
       progressBarId,
       playButtonId,
+      pauseButtonId,
       volumeButtonId,
       fullScreenButtonId
     })
-    this._videoContainer = document.getElementById(videoContainerId)
-    this._videoPlayer = document.getElementById(videoPlayerId)
 
     this._init()
   }
 
   _init() {
     this._attachPlayEvent()
-    this._videoContainer.addEventListener('mouseenter', this._control.show)
-    this._videoContainer.addEventListener('mouseleave', this._control.hide)
+    this._videoContainer.addEventListener('mouseenter', this._interface.show)
+    this._videoContainer.addEventListener('mouseleave', this._interface.hide)
+  }
+
+  play = () => {
+    this._videoPlayer.play()
+  }
+
+  pause = () => {
+    this._videoPlayer.pause()
   }
 
   _attachPlayEvent() {
     if (this._playButton) {
       this._playButton.addEventListener('click', this._play)
     }
-  }
-
-  _play() {
-    this._videoPlayer.play()
   }
 }

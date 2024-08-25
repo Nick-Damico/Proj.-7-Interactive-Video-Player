@@ -6,6 +6,7 @@ export default class Video {
     videoContainerId,
     videoControlsId,
     progressBarId,
+    videoTimeId,
     playButtonId,
     pauseButtonId,
     volumeButtonId,
@@ -18,6 +19,7 @@ export default class Video {
       video: this,
       videoControlsId,
       progressBarId,
+      videoTimeId,
       playButtonId,
       pauseButtonId,
       volumeButtonId,
@@ -47,6 +49,14 @@ export default class Video {
 
   toggleFullScreen = () => {
     this._videoPlayer.requestFullscreen()
+  }
+
+  duration() {
+    return this._videoPlayer.duration
+  }
+
+  getTime() {
+    return this._videoPlayer.currentTime
   }
 
   _attachPlayEvent() {

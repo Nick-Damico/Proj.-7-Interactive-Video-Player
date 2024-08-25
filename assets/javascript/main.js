@@ -9,6 +9,7 @@ new Video({
   videoContainerId: 'videoContainer',
   videoControlsId: 'videoControls',
   progressBarId: 'progressBar',
+  videoTimeId: 'videoTime',
   playButtonId: 'playBtn',
   pauseButtonId: 'pauseBtn',
   volumeButtonId: 'volumeBtn',

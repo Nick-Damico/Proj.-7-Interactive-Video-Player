@@ -29,12 +29,6 @@ export default class Video {
     this._init()
   }
 
-  _init() {
-    this._attachPlayEvent()
-    this._videoContainer.addEventListener('mouseenter', this._interface.show)
-    this._videoContainer.addEventListener('mouseleave', this._interface.hide)
-  }
-
   play = () => {
     this._videoPlayer.play()
   }
@@ -57,6 +51,12 @@ export default class Video {
 
   getTime() {
     return this._videoPlayer.currentTime
+  }
+
+  _init() {
+    this._attachPlayEvent()
+    this._videoContainer.addEventListener('mouseenter', this._interface.show)
+    this._videoContainer.addEventListener('mouseleave', this._interface.hide)
   }
 
   _attachPlayEvent() {

@@ -46,7 +46,7 @@
           <track
             src="assets/video/captions.vtt"
             label="English"
-            kind="subtitles"
+            kind="captions"
             srclang="en"
             default
           />
@@ -79,18 +79,24 @@
             <span id="videoTime" class="video-time"></span>
           </div>
 
-          <div class="right-media-controls controls">
+          <div class="right-media-controls">
             <button
-              id="closedCaptionBtn"
+              id="closedCaptionsBtn"
               class="caption-btn"
               data-state="captions"
             >
               <img
-                class="icon icon-cc"
+                class="icon icon-cc captions--on"
+                src="assets/icons/cc-icon-on.svg"
+                alt="closed caption btn"
+              />
+              <img
+                class="icon icon-cc captions--off"
                 src="assets/icons/cc-icon-off.svg"
                 alt="closed caption btn"
               />
             </button>
+
             <button id="volumeBtn" class="volume-btn">
               <img
                 class="icon icon-volume icon-volume--on"

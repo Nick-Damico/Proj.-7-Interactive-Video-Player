@@ -9,6 +9,7 @@ export default class Video {
     videoTimeId,
     playButtonId,
     pauseButtonId,
+    closedCaptionsId,
     volumeButtonId,
     fullScreenButtonId
   }) {
@@ -22,6 +23,7 @@ export default class Video {
       videoTimeId,
       playButtonId,
       pauseButtonId,
+      closedCaptionsId,
       volumeButtonId,
       fullScreenButtonId
     })
@@ -53,6 +55,13 @@ export default class Video {
     return this._videoPlayer.currentTime
   }
 
+  toggleCaptions() {
+    let captionTrack = this._captionTrack()
+    if (captionTrack) {
+      captionTrack.mode = captionTrack.mode == 'showing' ? 'hidden' : 'showing'
+    }
+  }
+
   _init() {
     this._attachPlayEvent()
     this._videoContainer.addEventListener('mouseenter', this._interface.show)
@@ -63,5 +72,11 @@ export default class Video {
     if (this._playButton) {
       this._playButton.addEventListener('click', this._play)
     }
+  }
+
+  _captionTrack() {
+    return [...this._videoPlayer.textTracks].find(
+      (track) => track.kind == 'captions'
+    )
   }
 }

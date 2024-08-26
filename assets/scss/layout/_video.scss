@@ -5,6 +5,7 @@
   background: $black;
 
   .media-player-controls {
+    box-sizing: border-box;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -20,6 +21,11 @@
     left: 0;
     padding: 0.5em;
 
+    .icon {
+      height: 1rem;
+    }
+
+    // VOLUME BUTTONS
     .pause-btn {
       display: none;
     }
@@ -38,6 +44,22 @@
       }
     }
 
+    // CLOSED CAPTION BUTTONS
+    .captions--off {
+      display: none;
+    }
+
+    .caption-btn.off {
+      img.captions--off {
+        display: block;
+      }
+
+      img.captions--on {
+        display: none;
+      }
+    }
+
+    // TIME DISPLAY
     span.video-time {
       display: inline-block;
       color: $white;
@@ -49,7 +71,7 @@
 
     .left-media-controls,
     .right-media-controls {
-      display: inherit;
+      display: flex;
     }
 
     .progress {

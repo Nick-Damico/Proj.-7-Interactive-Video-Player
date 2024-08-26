@@ -6,6 +6,7 @@ export default class Interface {
     videoTimeId,
     playButtonId,
     pauseButtonId,
+    closedCaptionsId,
     volumeButtonId,
     fullScreenButtonId
   }) {
@@ -15,6 +16,7 @@ export default class Interface {
     this._videoTime = document.getElementById(videoTimeId)
     this._playButton = document.getElementById(playButtonId)
     this._pauseButton = document.getElementById(pauseButtonId)
+    this._captionsButton = document.getElementById(closedCaptionsId)
     this._volumeButton = document.getElementById(volumeButtonId)
     this._fullScreenButton = document.getElementById(fullScreenButtonId)
 
@@ -34,12 +36,17 @@ export default class Interface {
     this._attachPlayListener()
     this._attachFullScreenListener()
     this._attachMuteListener()
+    this._attachCaptionListener()
     this._initProgressBar()
   }
 
   _attachPlayListener() {
     this._playButton.addEventListener('click', this._play)
     this._pauseButton.addEventListener('click', this._pause)
+  }
+
+  _attachCaptionListener() {
+    this._captionsButton.addEventListener('click', this._toggleCaptions)
   }
 
   _attachFullScreenListener() {
@@ -113,5 +120,10 @@ export default class Interface {
   _mute = () => {
     this._video.mute()
     this._volumeButton.classList.toggle('off') // toggles visibility of volume icon
+  }
+
+  _toggleCaptions = () => {
+    this._captionsButton.classList.toggle('off')
+    this._video.toggleCaptions()
   }
 }

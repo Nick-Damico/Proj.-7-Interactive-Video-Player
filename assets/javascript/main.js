@@ -12,6 +12,7 @@ new Video({
   videoTimeId: 'videoTime',
   playButtonId: 'playBtn',
   pauseButtonId: 'pauseBtn',
+  closedCaptionsId: 'closedCaptionsBtn',
   volumeButtonId: 'volumeBtn',
   fullScreenButtonId: 'fullScreenBtn'
 })

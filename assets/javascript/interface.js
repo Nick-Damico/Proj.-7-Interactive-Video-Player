@@ -42,7 +42,7 @@ export default class Interface {
   }
 
   _initTimeDisplay() {
-    this._setTimeDisplay()
+    this._setTimeDisplay(this._formatTimeForDisplay(0))
   }
 
   _attachPlayListener() {

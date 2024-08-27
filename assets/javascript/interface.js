@@ -33,11 +33,16 @@ export default class Interface {
 
   _init() {
     this._videoControls.style.opacity = 0
+    this._initTimeDisplay()
     this._attachPlayListener()
     this._attachFullScreenListener()
     this._attachMuteListener()
     this._attachCaptionListener()
     this._initProgressBar()
+  }
+
+  _initTimeDisplay() {
+    this._setTimeDisplay(this._formatTimeForDisplay(0))
   }
 
   _attachPlayListener() {
@@ -80,9 +85,7 @@ export default class Interface {
 
   _startUpdateTimeInterval() {
     return setInterval(() => {
-      this._videoTime.textContent = this._formatTimeForDisplay(
-        this._video.getTime()
-      )
+      this._setTimeDisplay(this._formatTimeForDisplay(this._video.getTime()))
     }, 500)
   }
 
@@ -101,6 +104,10 @@ export default class Interface {
 
   _formatTime(time) {
     return time.toString().padStart(2, 0)
+  }
+
+  _setTimeDisplay(time) {
+    this._videoTime.textContent = time
   }
 
   _hideControls = () => {

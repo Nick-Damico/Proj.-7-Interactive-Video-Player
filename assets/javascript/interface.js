@@ -42,7 +42,7 @@ export default class Interface {
   }
 
   _initTimeDisplay() {
-    this._setTimeDisplay(this._formatTimeForDisplay(0))
+    this._setTimeDisplay()
   }
 
   _attachPlayListener() {
@@ -66,7 +66,7 @@ export default class Interface {
   }
 
   _initProgressBar() {
-    this._progressBar.value = 0
+    this._updateProgressBar(0)
   }
 
   _play = () => {
@@ -86,7 +86,12 @@ export default class Interface {
   _startUpdateTimeInterval() {
     return setInterval(() => {
       this._setTimeDisplay(this._formatTimeForDisplay(this._video.getTime()))
+      this._updateProgressBar()
     }, 500)
+  }
+
+  _updateProgressBar() {
+    this._progressBar.value = this._video.runtimePercentage()
   }
 
   _formatTimeForDisplay(seconds) {

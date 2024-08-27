@@ -55,6 +55,10 @@ export default class Video {
     return this._videoPlayer.currentTime
   }
 
+  runtimePercentage() {
+    return Math.floor((this.getTime() / this.duration()) * 100) || 0
+  }
+
   toggleCaptions() {
     let captionTrack = this._captionTrack()
     if (captionTrack) {

@@ -112,7 +112,9 @@ export default class Interface {
   }
 
   _setTimeDisplay(time) {
-    this._videoTime.textContent = time
+    this._videoTime.textContent = `${time} / ${this._formatTimeForDisplay(
+      this._video.duration()
+    )}`
   }
 
   _hideControls = () => {

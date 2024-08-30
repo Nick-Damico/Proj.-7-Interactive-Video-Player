@@ -48,7 +48,7 @@ export default class Video {
   }
 
   duration() {
-    return this._videoPlayer.duration
+    return this._videoPlayer.duration || 0
   }
 
   getTime() {

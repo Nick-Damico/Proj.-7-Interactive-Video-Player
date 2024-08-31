@@ -1,5 +1,16 @@
 import Interface from './interface'
 
+class Range {
+  constructor(min, max) {
+    this._min = parseFloat(min)
+    this._max = parseFloat(max)
+  }
+
+  includes(value) {
+    return value >= this._min && value <= this._max
+  }
+}
+
 export default class Video {
   constructor({
     videoPlayerId,
@@ -70,6 +81,7 @@ export default class Video {
     this._attachPlayEvent()
     this._videoContainer.addEventListener('mouseenter', this._interface.show)
     this._videoContainer.addEventListener('mouseleave', this._interface.hide)
+    this._attachTimeUpdate()
   }
 
   _attachPlayEvent() {
@@ -78,9 +90,42 @@ export default class Video {
     }
   }
 
+  _attachTimeUpdate() {
+    this._videoPlayer.addEventListener('timeupdate', () => {
+      this._highlightTranscript()
+    })
+  }
+
   _captionTrack() {
     return [...this._videoPlayer.textTracks].find(
       (track) => track.kind == 'captions'
     )
+  }
+
+  _highlightTranscript() {
+    this._getTranscriptSpans().forEach((spanEl) => {
+      let timeRange = new Range(
+        spanEl.dataset.startTime,
+        spanEl.dataset.endTime
+      )
+
+      if (timeRange.includes(this.getTime())) {
+        this._addHighlightClass(spanEl)
+      } else {
+        this._removeHighlightClass(spanEl)
+      }
+    })
+  }
+
+  _addHighlightClass(el) {
+    el.classList.add('highlight')
+  }
+
+  _removeHighlightClass(el) {
+    el.classList.remove('highlight')
+  }
+
+  _getTranscriptSpans() {
+    return [...document.getElementsByClassName('transcript-text')]
   }
 }

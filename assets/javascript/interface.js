@@ -1,4 +1,7 @@
 export default class Interface {
+  static MINS_IN_HOUR = 60
+  static SECONDS_IN_HOUR = 3600
+
   constructor({
     video,
     videoControlsId,
@@ -95,20 +98,35 @@ export default class Interface {
   }
 
   _formatTimeForDisplay(seconds) {
-    let mins_in_hour = 60
-    let seconds_in_hour = 3600
+    let hours = this._totalHours(seconds)
+    let mins = this._totalMinutes(seconds)
+    let secs = this._totalSeconds(seconds)
 
-    let hours = this._formatTime(Math.floor(seconds / seconds_in_hour))
-    let mins = this._formatTime(
-      Math.floor((seconds % seconds_in_hour) / mins_in_hour)
-    )
-    let secs = this._formatTime(Math.floor(seconds % mins_in_hour))
-
-    return `${hours}:${mins}:${secs}`
+    return this._formatTime({ hours: hours, mins: mins, secs: secs })
   }
 
-  _formatTime(time) {
-    return time.toString().padStart(2, 0)
+  _totalHours(seconds) {
+    return Math.floor(seconds / Interface.SECONDS_IN_HOUR)
+  }
+
+  _totalMinutes(seconds) {
+    return Math.floor(
+      (seconds % Interface.SECONDS_IN_HOUR) / Interface.MINS_IN_HOUR
+    )
+  }
+
+  _totalSeconds(seconds) {
+    let mins_in_hour = 60
+
+    return Math.floor(seconds % mins_in_hour)
+  }
+
+  _formatTime({ hours, mins, secs }) {
+    return [hours, mins, secs].map((val) => this._padValue(val)).join(':')
+  }
+
+  _padValue(value) {
+    return value.toString().padStart(2, 0)
   }
 
   _setTimeDisplay(time) {

@@ -25,7 +25,7 @@
       rel="stylesheet"
     />
     <link lang="sass" rel="stylesheet" href="assets/scss/application.scss" />
-    <script type="module" src="assets/javascript/main.js" defer></script>
+    <script type="module" src="src/main.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
@@ -41,10 +41,10 @@
 
       <div id="videoContainer" class="video-container">
         <video id="videoPlayer" class="video-player" preload="auto">
-          <source src="assets/video/video.mp4" type="video/mp4" />
-          <source src="assets/video/video.ogg" type="video/ogg" />
+          <source src="video.mp4" type="video/mp4" />
+          <source src="video.ogg" type="video/ogg" />
           <track
-            src="assets/video/captions.vtt"
+            src="captions.vtt"
             label="English"
             kind="captions"
             srclang="en"
@@ -63,7 +63,7 @@
             <button id="playBtn" class="play-btn">
               <img
                 class="icon play-icon"
-                src="assets/icons/play-icon.png"
+                src="/play-icon.png"
                 alt="play button"
               />
             </button>
@@ -71,7 +71,7 @@
             <button id="pauseBtn" class="pause-btn">
               <img
                 class="icon pause-icon"
-                src="assets/icons/pause-icon.png"
+                src="pause-icon.png"
                 alt="pause button"
               />
             </button>
@@ -86,12 +86,12 @@
             >
               <img
                 class="icon icon-cc captions--on"
-                src="assets/icons/cc-icon-on.svg"
+                src="cc-icon-on.svg"
                 alt="closed caption btn"
               />
               <img
                 class="icon icon-cc captions--off"
-                src="assets/icons/cc-icon-off.svg"
+                src="cc-icon-off.svg"
                 alt="closed caption btn"
               />
             </button>
@@ -99,19 +99,19 @@
             <button id="volumeBtn" class="volume-btn">
               <img
                 class="icon icon-volume icon-volume--on"
-                src="assets/icons/volume-on-icon.png"
+                src="volume-on-icon.png"
                 alt="volume on button"
               />
               <img
                 class="icon icon-volume icon-volume--off"
-                src="assets/icons/volume-off-icon.png"
+                src="volume-off-icon.png"
                 alt="volume on button"
               />
             </button>
             <button id="fullScreenBtn" class="fullscreen-btn">
               <img
                 class="icon fullscreen-icon"
-                src="assets/icons/fullscreen-icon.png"
+                src="fullscreen-icon.png"
                 alt="fullscreen button"
               />
             </button>

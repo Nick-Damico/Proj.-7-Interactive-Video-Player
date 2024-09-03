@@ -22,10 +22,12 @@ export default class Video {
     pauseButtonId,
     closedCaptionsId,
     volumeButtonId,
-    fullScreenButtonId
+    fullScreenButtonId,
+    transcriptContainerId
   }) {
     this._videoContainer = document.getElementById(videoContainerId)
     this._videoPlayer = document.getElementById(videoPlayerId)
+    this._transcript = document.getElementById(transcriptContainerId)
 
     this._interface = new Interface({
       video: this,
@@ -78,10 +80,12 @@ export default class Video {
   }
 
   _init() {
+    console.log('hello')
     this._attachPlayEvent()
     this._videoContainer.addEventListener('mouseenter', this._interface.show)
     this._videoContainer.addEventListener('mouseleave', this._interface.hide)
     this._attachTimeUpdate()
+    this._transcript.addEventListener('click', (e) => this._updatePlayback(e))
   }
 
   _attachPlayEvent() {
@@ -127,5 +131,13 @@ export default class Video {
 
   _getTranscriptSpans() {
     return [...document.getElementsByClassName('transcript-text')]
+  }
+
+  _updatePlayback(e) {
+    let target = e.target
+
+    if (target) {
+      this._videoPlayer.currentTime = parseFloat(target.dataset.startTime)
+    }
   }
 }

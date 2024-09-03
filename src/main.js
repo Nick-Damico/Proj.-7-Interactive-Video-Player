@@ -14,5 +14,6 @@ new Video({
   pauseButtonId: 'pauseBtn',
   closedCaptionsId: 'closedCaptionsBtn',
   volumeButtonId: 'volumeBtn',
-  fullScreenButtonId: 'fullScreenBtn'
+  fullScreenButtonId: 'fullScreenBtn',
+  transcriptContainerId: 'transcript'
 })

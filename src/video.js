@@ -80,18 +80,10 @@ export default class Video {
   }
 
   _init() {
-    console.log('hello')
-    this._attachPlayEvent()
     this._videoContainer.addEventListener('mouseenter', this._interface.show)
     this._videoContainer.addEventListener('mouseleave', this._interface.hide)
     this._attachTimeUpdate()
     this._transcript.addEventListener('click', (e) => this._updatePlayback(e))
-  }
-
-  _attachPlayEvent() {
-    if (this._playButton) {
-      this._playButton.addEventListener('click', this._play)
-    }
   }
 
   _attachTimeUpdate() {

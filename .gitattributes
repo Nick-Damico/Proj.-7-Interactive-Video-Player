@@ -1,0 +1,12 @@
+assets/icons/pause-icon.png filter=lfs diff=lfs merge=lfs -text
+assets/icons/play-icon.png filter=lfs diff=lfs merge=lfs -text
+assets/icons/volume-off-icon.png filter=lfs diff=lfs merge=lfs -text
+assets/icons/volume-on-icon.png filter=lfs diff=lfs merge=lfs -text
+assets/icons/cc-icon-off.svg filter=lfs diff=lfs merge=lfs -text
+assets/icons/cc-icon-on.svg filter=lfs diff=lfs merge=lfs -text
+assets/icons/fullscreen-icon.png filter=lfs diff=lfs merge=lfs -text
+assets/icons/javascript.svg filter=lfs diff=lfs merge=lfs -text
+assets/video/ filter=lfs diff=lfs merge=lfs -text
+assets/video/captions.vtt filter=lfs diff=lfs merge=lfs -text
+assets/video/video.mp4 filter=lfs diff=lfs merge=lfs -text
+assets/video/video.ogg filter=lfs diff=lfs merge=lfs -text
